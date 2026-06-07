@@ -37,26 +37,26 @@ The project is divided into four main phases:
 
 ```text
 .
-├── Data/                                  # Local folder for the original datasets
+├── Data/                                  
 │   ├── artists.xml
 │   └── tracks.json
 │
-├── Task_1_ Data_Understanding/            # Python scripts for initial exploratory analysis
+├── Task_1_ Data_Understanding/           
 │
-├── Task_2_Data_Cleaning/                  # Python scripts for data cleaning and enrichment
+├── Task_2_Data_Cleaning/                
 │
-├── Task_3_Profiling/                      # Song profiling with clustering and topic modelling
+├── Task_3_Profiling/                     
 │
-├── Task_5_6_splitting_populating/         # Data warehouse table preparation and population
+├── Task_5_6_splitting_populating/        
 │
-├── Task_7_8_9_13/                         # SSIS workflows for selected analytical assignments
+├── Task_7_8_9_13/                         
 │
-├── Task_10_11_12/                         # SSIS workflows for business-oriented queries
+├── Task_10_11_12/                        
 │
 ├── Task_14/
-│   └── Group_ID_2_CUBE/                   # SSAS cube project
+│   └── Group_ID_2_CUBE/                  
 │
-├── Task 15-16-17-18-19-20-21-22/          # MDX queries and Power BI dashboard files
+├── Task 15-16-17-18-19-20-21-22/         
 │
 ├── LDS-report-Group-ID-2.pdf              # Final project report
 └── README.md
