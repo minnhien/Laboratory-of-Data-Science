@@ -58,6 +58,6 @@ The project is divided into four main phases:
 │
 ├── Task 15-16-17-18-19-20-21-22/         
 │
-├── LDS-report-Group-ID-2.pdf              # Final project report
+├── LDS-report-Group-ID-2.pdf             
 └── README.md
 ```
