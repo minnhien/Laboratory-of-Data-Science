@@ -1,0 +1,17 @@
+SELECT
+  [Measures].[Stream 1month] ON COLUMNS,
+  NONEMPTY(
+    FILTER([Date].[Month Name].[Month Name],
+           [Date].[Month Name].CurrentMember.Name <> "")
+    *
+   (FILTER([Artist Geography C].[Hierarchy].[Region],
+           [Artist Geography C].[Hierarchy].CurrentMember.Name <> "Unknown"
+           AND [Artist Geography C].[Hierarchy].CurrentMember.Name <> "")
+    +
+    FILTER([Artist Geography C].[Hierarchy].[Country],
+           [Artist Geography C].[Hierarchy].CurrentMember.Name <> "Unknown"
+           AND [Artist Geography C].[Hierarchy].CurrentMember.Name <> ""))
+  ) ON ROWS
+FROM [Group ID 2 DB]
+WHERE ( [Artist Role].[Artist Role].&[Primary] );
+

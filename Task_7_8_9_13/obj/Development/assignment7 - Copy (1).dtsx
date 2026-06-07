@@ -1,0 +1,1589 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/4/2025 10:55:24 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-JGCVF45"
+  DTS:CreatorName="DESKTOP-JGCVF45\hiend"
+  DTS:DTSID="{AC94BE07-397B-4846-99F7-CA78AFFD44C7}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1008.3"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="assignment7"
+  DTS:PackageType="5"
+  DTS:VersionBuild="110"
+  DTS:VersionGUID="{04FB48B1-3AB6-4966-98D8-EC7B4C520085}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[131.114.50.57.Group_ID_2_DB.Group_ID_2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8069B68A-7619-4BB3-8065-DA44FBAD08C8}"
+      DTS:ObjectName="131.114.50.57.Group_ID_2_DB.Group_ID_2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=131.114.50.57;User ID=Group_ID_2;Initial Catalog=Group_ID_2_DB;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package1-{8069B68A-7619-4BB3-8065-DA44FBAD08C8}131.114.50.57.Group_ID_2_DB.Group_ID_2;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAPLDEYznyMEiGifovxEP9QQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABeJhSJoXyFLEaISlo2oHsMQFDrPoNcb7DK/s/xCqRzbwAAAAAOgAAAAAIAACAAAABO6dsCCXhuUWSjj8iT3knxMUhO6IJZwwrC9wXITqh9ZSAAAACp6VbuB+g1NiFI/dy1MlpAC739pPo52UjDzZOktjM9eEAAAAA8gWW1PywJeBZLO0rf/zdkBZzdIRrREvMwlLIDlCMopUmq5ILFk9i5BD/g8KGkr4XNNeMnAWijT2cmnyQyBOcm</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{4571F417-EFBB-4D28-A56F-D4AD0B9162B4}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[Published_song_fact_SSIS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[Published_song_fact_SSIS]) [refTable]
+where [refTable].[album_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="song_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="date_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="album_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="category_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="track_id" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="title" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="duration" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="track_number" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="stream_1month" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="explicit" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[album_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[131.114.50.57.Group_ID_2_DB.Group_ID_2]"
+                  connectionManagerRefId="Package.ConnectionManagers[131.114.50.57.Group_ID_2_DB.Group_ID_2]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Lookup.Inputs[Lookup Input].Columns[album_id]"
+                      cachedDataType="i4"
+                      cachedName="album_id"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[album_id]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">album_id</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">album_id</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Lookup 1"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup 1"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[album_SSIS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[album_SSIS]) [refTable]
+where [refTable].[album_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="album_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="id_album" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="album_name" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="album_release_date" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[album_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Lookup 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[131.114.50.57.Group_ID_2_DB.Group_ID_2]"
+                  connectionManagerRefId="Package.ConnectionManagers[131.114.50.57.Group_ID_2_DB.Group_ID_2]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Lookup 1.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Lookup 1.Inputs[Lookup Input].Columns[album_id]"
+                      cachedDataType="i4"
+                      cachedName="album_id"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[album_id]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">album_id</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">album_id</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Lookup 1.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup 1.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Lookup 1.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup 1.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Lookup 1.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup 1.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[album_SSIS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[131.114.50.57.Group_ID_2_DB.Group_ID_2]"
+                  connectionManagerRefId="Package.ConnectionManagers[131.114.50.57.Group_ID_2_DB.Group_ID_2]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[id_album]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="id_album"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id_album]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[id_album]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[album_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="album_name"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[album_name]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[album_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[album_release_date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="album_release_date"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[album_release_date]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[album_release_date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[album_id]"
+                      cachedDataType="i4"
+                      cachedName="album_id"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[album_id]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[album_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[album_id]"
+                      dataType="i4"
+                      name="album_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id_album]"
+                      dataType="wstr"
+                      length="50"
+                      name="id_album" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[album_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="album_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[album_release_date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="album_release_date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[album]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[131.114.50.57.Group_ID_2_DB.Group_ID_2]"
+                  connectionManagerRefId="Package.ConnectionManagers[131.114.50.57.Group_ID_2_DB.Group_ID_2]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[album_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[album_id]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[album_id]"
+                      name="album_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[id_album]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[id_album]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[id_album]"
+                      name="id_album"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[album_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[album_name]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[album_name]"
+                      name="album_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[album_release_date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[album_release_date]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[album_release_date]"
+                      name="album_release_date"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[album_id]"
+                      dataType="i4"
+                      name="album_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[id_album]"
+                      dataType="wstr"
+                      length="50"
+                      name="id_album" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[album_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="album_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[album_release_date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="album_release_date" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[album_id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[album_id]"
+                      name="album_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[id_album]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[id_album]"
+                      name="id_album" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[album_name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[album_name]"
+                      name="album_name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[album_release_date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[album_release_date]"
+                      name="album_release_date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup Match Output]"
+              endId="Package\Data Flow Task\Lookup 1.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Data Flow Task\Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup No Match Output]"
+              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Data Flow Task\Lookup 1.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Lookup.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Populate Publised_song_fact_SSIS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{51FEA1C6-0608-4C3A-B1A8-B37805A4DC6B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Populate Publised_song_fact_SSIS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Published_song_fact_SSIS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[131.114.50.57.Group_ID_2_DB.Group_ID_2]"
+                  connectionManagerRefId="Package.ConnectionManagers[131.114.50.57.Group_ID_2_DB.Group_ID_2]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date_id]"
+                      cachedDataType="i4"
+                      cachedName="date_id"
+                      externalMetadataColumnId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_id]"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_id]" />
+                    <inputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[album_id]"
+                      cachedDataType="i4"
+                      cachedName="album_id"
+                      externalMetadataColumnId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[album_id]"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[album_id]" />
+                    <inputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[track_id]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="track_id"
+                      externalMetadataColumnId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[track_id]"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[track_id]" />
+                    <inputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[title]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="title"
+                      externalMetadataColumnId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[title]"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[title]" />
+                    <inputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[duration]"
+                      cachedDataType="i4"
+                      cachedName="duration"
+                      externalMetadataColumnId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[duration]"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[duration]" />
+                    <inputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[track_number]"
+                      cachedDataType="i4"
+                      cachedName="track_number"
+                      externalMetadataColumnId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[track_number]"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[track_number]" />
+                    <inputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[stream_1month]"
+                      cachedDataType="i4"
+                      cachedName="stream_1month"
+                      externalMetadataColumnId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[stream_1month]"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[stream_1month]" />
+                    <inputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[category_id]"
+                      cachedDataType="i4"
+                      cachedName="category_id"
+                      externalMetadataColumnId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[category_id]"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[category_id]" />
+                    <inputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[explicit]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="explicit"
+                      externalMetadataColumnId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[explicit]"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[explicit]" />
+                    <inputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[song_id]"
+                      cachedDataType="i4"
+                      cachedName="song_id"
+                      externalMetadataColumnId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[song_id]"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[song_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[song_id]"
+                      dataType="i4"
+                      name="song_id" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_id]"
+                      dataType="i4"
+                      name="date_id" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[album_id]"
+                      dataType="i4"
+                      name="album_id" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[track_id]"
+                      dataType="wstr"
+                      length="50"
+                      name="track_id" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[title]"
+                      dataType="wstr"
+                      length="255"
+                      name="title" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[duration]"
+                      dataType="i4"
+                      name="duration" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[track_number]"
+                      dataType="i4"
+                      name="track_number" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[stream_1month]"
+                      dataType="i4"
+                      name="stream_1month" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[category_id]"
+                      dataType="i4"
+                      name="category_id" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[explicit]"
+                      dataType="wstr"
+                      length="255"
+                      name="explicit" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Published_song_fact]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[131.114.50.57.Group_ID_2_DB.Group_ID_2]"
+                  connectionManagerRefId="Package.ConnectionManagers[131.114.50.57.Group_ID_2_DB.Group_ID_2]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[song_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[song_id]"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[song_id]"
+                      name="song_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date_id]"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_id]"
+                      name="date_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[album_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[album_id]"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[album_id]"
+                      name="album_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[category_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[category_id]"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[category_id]"
+                      name="category_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[track_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[track_id]"
+                      length="50"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[track_id]"
+                      name="track_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[title]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[title]"
+                      length="255"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[title]"
+                      name="title"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[duration]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[duration]"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[duration]"
+                      name="duration"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[track_number]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[track_number]"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[track_number]"
+                      name="track_number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[stream_1month]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[stream_1month]"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[stream_1month]"
+                      name="stream_1month"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[explicit]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[explicit]"
+                      length="255"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].Columns[explicit]"
+                      name="explicit"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[song_id]"
+                      dataType="i4"
+                      name="song_id" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date_id]"
+                      dataType="i4"
+                      name="date_id" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[album_id]"
+                      dataType="i4"
+                      name="album_id" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[category_id]"
+                      dataType="i4"
+                      name="category_id" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[track_id]"
+                      dataType="wstr"
+                      length="50"
+                      name="track_id" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[title]"
+                      dataType="wstr"
+                      length="255"
+                      name="title" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[duration]"
+                      dataType="i4"
+                      name="duration" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[track_number]"
+                      dataType="i4"
+                      name="track_number" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[stream_1month]"
+                      dataType="i4"
+                      name="stream_1month" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[explicit]"
+                      dataType="wstr"
+                      length="255"
+                      name="explicit" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[song_id]"
+                      dataType="i4"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[song_id]"
+                      name="song_id" />
+                    <outputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date_id]"
+                      dataType="i4"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date_id]"
+                      name="date_id" />
+                    <outputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[album_id]"
+                      dataType="i4"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[album_id]"
+                      name="album_id" />
+                    <outputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[category_id]"
+                      dataType="i4"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[category_id]"
+                      name="category_id" />
+                    <outputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[track_id]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[track_id]"
+                      name="track_id" />
+                    <outputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[title]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[title]"
+                      name="title" />
+                    <outputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[duration]"
+                      dataType="i4"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[duration]"
+                      name="duration" />
+                    <outputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[track_number]"
+                      dataType="i4"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[track_number]"
+                      name="track_number" />
+                    <outputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[stream_1month]"
+                      dataType="i4"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[stream_1month]"
+                      name="stream_1month" />
+                    <outputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[explicit]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[explicit]"
+                      name="explicit" />
+                    <outputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Populate Publised_song_fact_SSIS\Percentage Sampling"
+              componentClassID="Microsoft.PctSampling"
+              contactInfo="Percentage Sampling;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Randomly samples a percentage of rows from an input data flow. For example, use it twice to help create a data mining model: create one sample for training the model and another sample for testing the model."
+              name="Percentage Sampling">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage size of the sample."
+                  expressionType="Notify"
+                  name="SamplingValue">30</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the seed for the random number generator."
+                  name="SamplingSeed">1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Populate Publised_song_fact_SSIS\Percentage Sampling.Inputs[Percentage Sampling Input 1]"
+                  name="Percentage Sampling Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Populate Publised_song_fact_SSIS\Percentage Sampling.Outputs[Sampling Selected Output]"
+                  exclusionGroup="1"
+                  name="Sampling Selected Output"
+                  synchronousInputId="Package\Populate Publised_song_fact_SSIS\Percentage Sampling.Inputs[Percentage Sampling Input 1]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Output for rows in the sample"
+                      name="Selected">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Populate Publised_song_fact_SSIS\Percentage Sampling.Outputs[Sampling Unselected Output]"
+                  exclusionGroup="1"
+                  name="Sampling Unselected Output"
+                  synchronousInputId="Package\Populate Publised_song_fact_SSIS\Percentage Sampling.Inputs[Percentage Sampling Input 1]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Output for rows in the sample"
+                      name="Selected">false</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Populate Publised_song_fact_SSIS.Paths[OLE DB Source Output]"
+              endId="Package\Populate Publised_song_fact_SSIS\Percentage Sampling.Inputs[Percentage Sampling Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\Populate Publised_song_fact_SSIS\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Populate Publised_song_fact_SSIS.Paths[Sampling Selected Output]"
+              endId="Package\Populate Publised_song_fact_SSIS\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Sampling Selected Output"
+              startId="Package\Populate Publised_song_fact_SSIS\Percentage Sampling.Outputs[Sampling Selected Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="271.428572006371,198.823529237488" />
+        <NodeLayout
+          Size="240.8,41.6"
+          Id="Package\Populate Publised_song_fact_SSIS"
+          TopLeft="232.857143352835,86.4117646301395" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="131.428571708348,243.741176268159" />
+        <NodeLayout
+          Size="121.6,41.6"
+          Id="Package\Data Flow Task\Lookup 1"
+          TopLeft="370.714286503439,219.47058804292" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Data Flow Task\OLE DB Source"
+          TopLeft="325.571424717502,36.999998354736" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\Data Flow Task\Lookup"
+          TopLeft="356.428566908046,123.117643486824" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="400.371424717502,78.599998354736">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.4571421905445,44.5176451320885"
+              Start="0,0"
+              End="12.4571421905445,37.0176451320885">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.2588225660443" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.2588225660443"
+                    Point2="0,22.2588225660443"
+                    Point3="4,22.2588225660443" />
+                  <mssgle:LineSegment
+                    End="8.45714219054446,22.2588225660443" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.45714219054446,22.2588225660443"
+                    Point2="12.4571421905445,22.2588225660443"
+                    Point3="12.4571421905445,26.2588225660443" />
+                  <mssgle:LineSegment
+                    End="12.4571421905445,37.0176451320885" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-1.77142890472777,27.2588225660443,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup No Match Output]"
+          TopLeft="370.714286503439,240.27058804292">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-68.885714795091,24.2705882252397"
+              Start="0,0"
+              End="-61.385714795091,24.2705882252397">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-30.4428573975455,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.4428573975455,0"
+                    Point2="-34.4428573975455,0"
+                    Point3="-34.4428573975455,4" />
+                  <mssgle:LineSegment
+                    End="-34.4428573975455,20.2705882252397" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-34.4428573975455,20.2705882252397"
+                    Point2="-34.4428573975455,24.2705882252397"
+                    Point3="-38.4428573975455,24.2705882252397" />
+                  <mssgle:LineSegment
+                    End="-61.385714795091,24.2705882252397" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-90.2492441162955,-17.609375,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Match Output]"
+          TopLeft="412.828566908046,164.717643486824">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18.685719595393,54.7529445560952"
+              Start="0,0"
+              End="18.685719595393,47.2529445560952">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.3764722780476" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.3764722780476"
+                    Point2="0,27.3764722780476"
+                    Point3="4,27.3764722780476" />
+                  <mssgle:LineSegment
+                    End="14.685719595393,27.3764722780476" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.685719595393,27.3764722780476"
+                    Point2="18.685719595393,27.3764722780476"
+                    Point3="18.685719595393,31.3764722780476" />
+                  <mssgle:LineSegment
+                    End="18.685719595393,47.2529445560952" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-38.8485269210535,32.3764722780476,114.120078125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Lookup 1">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[album_SSIS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Published_song_fact_SSIS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Populate Publised_song_fact_SSIS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Populate Publised_song_fact_SSIS\OLE DB Source"
+          TopLeft="257.142857690247,64.2352940613423" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Populate Publised_song_fact_SSIS\OLE DB Destination"
+          TopLeft="276.428572017015,235.529411558256" />
+        <NodeLayout
+          Size="177.6,41.6"
+          Id="Package\Populate Publised_song_fact_SSIS\Percentage Sampling"
+          TopLeft="267.85714342734,152.999999897445" />
+        <EdgeLayout
+          Id="Package\Populate Publised_song_fact_SSIS.Paths[Sampling Selected Output]"
+          TopLeft="359.142857722178,194.599999897445">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.9294116608105"
+              Start="0,0"
+              End="0,33.4294116608105">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.4294116608105" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-57.94205078125,10.8831628616553,115.8841015625,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Populate Publised_song_fact_SSIS.Paths[OLE DB Source Output]"
+          TopLeft="331.942857690247,105.835294061342">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="24.7142857370936,47.1647058361026"
+              Start="0,0"
+              End="24.7142857370936,39.6647058361026">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5823529180513" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.5823529180513"
+                    Point2="0,23.5823529180513"
+                    Point3="4,23.5823529180513" />
+                  <mssgle:LineSegment
+                    End="20.7142857370936,23.5823529180513" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.7142857370936,23.5823529180513"
+                    Point2="24.7142857370936,23.5823529180513"
+                    Point3="24.7142857370936,27.5823529180513" />
+                  <mssgle:LineSegment
+                    End="24.7142857370936,39.6647058361026" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Populate Publised_song_fact_SSIS\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Populate Publised_song_fact_SSIS\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

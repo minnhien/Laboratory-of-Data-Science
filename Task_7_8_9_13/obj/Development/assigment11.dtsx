@@ -1,0 +1,1708 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/6/2025 6:02:14 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-JGCVF45"
+  DTS:CreatorName="DESKTOP-JGCVF45\hiend"
+  DTS:DTSID="{073D5268-518A-45E1-BD15-AAFEB3441B58}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1008.3"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="87"
+  DTS:VersionGUID="{50BACC75-5955-4A1D-8421-E67F9AB59034}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[131.114.50.57.Group_ID_2_DB.Group_ID_2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9F13FEF2-7A4C-4FFF-8F69-E3C46556DCEA}"
+      DTS:ObjectName="131.114.50.57.Group_ID_2_DB.Group_ID_2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=131.114.50.57;User ID=Group_ID_2;Initial Catalog=Group_ID_2_DB;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAPLDEYznyMEiGifovxEP9QQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADYGuzzyNLRgjpxC5CnDpN+ZY18seIpvSONACPQr0ouxwAAAAAOgAAAAAIAACAAAABPnMwZoa8LuXdepXCfrbhvrirZjcL7JykqGyUGJbmuZiAAAAAZKaD9fcdbSuks2WI6q7Xn7v+JiVv8CitfAZNTSW6guUAAAACYn94jhyjaB3/F/YKZGbAhtDDWnxEQzrBGtm1TngBaUFyYrmqFOjr2yJJoCWQjIh4m1e9UDhFgyh8rxeMThR0S</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\main artist statistics"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{9BB4026B-3663-485D-828E-2650F63545C1}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="main artist statistics"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\main artist statistics\Aggregate"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="Aggregate"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\main artist statistics\Aggregate.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\main artist statistics\Aggregate.Inputs[Aggregate Input 1].Columns[artist_id]"
+                      cachedDataType="i4"
+                      cachedName="artist_id"
+                      lineageId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Output].Columns[artist_id]" />
+                    <inputColumn
+                      refId="Package\main artist statistics\Aggregate.Inputs[Aggregate Input 1].Columns[song_id]"
+                      cachedDataType="i4"
+                      cachedName="song_id"
+                      lineageId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Output].Columns[song_id]" />
+                    <inputColumn
+                      refId="Package\main artist statistics\Aggregate.Inputs[Aggregate Input 1].Columns[stream_1month]"
+                      cachedDataType="i4"
+                      cachedName="stream_1month"
+                      lineageId="Package\main artist statistics\Lookup.Outputs[Lookup Match Output].Columns[stream_1month]" />
+                    <inputColumn
+                      refId="Package\main artist statistics\Aggregate.Inputs[Aggregate Input 1].Columns[stream_1month_square]"
+                      cachedDataType="r8"
+                      cachedName="stream_1month_square"
+                      lineageId="Package\main artist statistics\Derived Column 1.Outputs[Derived Column Output].Columns[stream_1month_square]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\main artist statistics\Aggregate.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\main artist statistics\Aggregate.Outputs[Aggregate Output 1].Columns[artist_id]"
+                      dataType="i4"
+                      lineageId="Package\main artist statistics\Aggregate.Outputs[Aggregate Output 1].Columns[artist_id]"
+                      name="artist_id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\main artist statistics\song_artist.Outputs[OLE DB Source Output].Columns[artist_id]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\main artist statistics\Aggregate.Outputs[Aggregate Output 1].Columns[songs_per_artist]"
+                      dataType="ui8"
+                      lineageId="Package\main artist statistics\Aggregate.Outputs[Aggregate Output 1].Columns[songs_per_artist]"
+                      name="songs_per_artist">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\main artist statistics\song_artist.Outputs[OLE DB Source Output].Columns[song_id]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\main artist statistics\Aggregate.Outputs[Aggregate Output 1].Columns[sum_streams]"
+                      dataType="i8"
+                      lineageId="Package\main artist statistics\Aggregate.Outputs[Aggregate Output 1].Columns[sum_streams]"
+                      name="sum_streams">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\main artist statistics\Lookup.Outputs[Lookup Match Output].Columns[stream_1month]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\main artist statistics\Aggregate.Outputs[Aggregate Output 1].Columns[sum_streams_sq]"
+                      dataType="r8"
+                      lineageId="Package\main artist statistics\Aggregate.Outputs[Aggregate Output 1].Columns[sum_streams_sq]"
+                      name="sum_streams_sq">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\main artist statistics\Derived Column 1.Outputs[Derived Column Output].Columns[stream_1month_square]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\main artist statistics\Aggregate.Outputs[Aggregate Output 1].Columns[avg_streams]"
+                      dataType="r8"
+                      lineageId="Package\main artist statistics\Aggregate.Outputs[Aggregate Output 1].Columns[avg_streams]"
+                      name="avg_streams">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\main artist statistics\Lookup.Outputs[Lookup Match Output].Columns[stream_1month]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">5</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\main artist statistics\Aggregate 1"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="Aggregate 1"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\main artist statistics\Aggregate 1.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\main artist statistics\Aggregate 1.Inputs[Aggregate Input 1].Columns[song_id]"
+                      cachedDataType="i4"
+                      cachedName="song_id"
+                      lineageId="Package\main artist statistics\316:invalid" />
+                    <inputColumn
+                      refId="Package\main artist statistics\Aggregate 1.Inputs[Aggregate Input 1].Columns[is flopping]"
+                      cachedDataType="i4"
+                      cachedName="is flopping"
+                      lineageId="Package\main artist statistics\317:invalid" />
+                    <inputColumn
+                      refId="Package\main artist statistics\Aggregate 1.Inputs[Aggregate Input 1].Columns[is trending]"
+                      cachedDataType="i4"
+                      cachedName="is trending"
+                      lineageId="Package\main artist statistics\318:invalid" />
+                    <inputColumn
+                      refId="Package\main artist statistics\Aggregate 1.Inputs[Aggregate Input 1].Columns[artist_id]"
+                      cachedDataType="i4"
+                      cachedName="artist_id"
+                      lineageId="Package\main artist statistics\Aggregate.Outputs[Aggregate Output 1].Columns[artist_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\main artist statistics\Aggregate 1.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\main artist statistics\Aggregate 1.Outputs[Aggregate Output 1].Columns[artist_id]"
+                      dataType="i4"
+                      lineageId="Package\main artist statistics\Aggregate 1.Outputs[Aggregate Output 1].Columns[artist_id]"
+                      name="artist_id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\main artist statistics\Aggregate.Outputs[Aggregate Output 1].Columns[artist_id]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\main artist statistics\Aggregate 1.Outputs[Aggregate Output 1].Columns[total_songs]"
+                      dataType="ui4"
+                      lineageId="Package\main artist statistics\Aggregate 1.Outputs[Aggregate Output 1].Columns[total_songs]"
+                      name="total_songs">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\main artist statistics\316:invalid}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">3</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                          name="CountDistinctScale">0</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                          name="CountDistinctKeys">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\main artist statistics\Aggregate 1.Outputs[Aggregate Output 1].Columns[trending_songs]"
+                      dataType="i8"
+                      lineageId="Package\main artist statistics\Aggregate 1.Outputs[Aggregate Output 1].Columns[trending_songs]"
+                      name="trending_songs">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\main artist statistics\318:invalid}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\main artist statistics\Aggregate 1.Outputs[Aggregate Output 1].Columns[flopping_song]"
+                      dataType="i8"
+                      lineageId="Package\main artist statistics\Aggregate 1.Outputs[Aggregate Output 1].Columns[flopping_song]"
+                      name="flopping_song">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\main artist statistics\317:invalid}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\main artist statistics\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\main artist statistics\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\main artist statistics\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\main artist statistics\Derived Column.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\main artist statistics\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\main artist statistics\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\main artist statistics\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\main artist statistics\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\main artist statistics\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\main artist statistics\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\main artist statistics\Derived Column 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\main artist statistics\Derived Column 1.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\main artist statistics\Derived Column 1.Inputs[Derived Column Input].Columns[stream_1month]"
+                      cachedDataType="i4"
+                      cachedName="stream_1month"
+                      lineageId="Package\main artist statistics\Lookup.Outputs[Lookup Match Output].Columns[stream_1month]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\main artist statistics\Derived Column 1.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\main artist statistics\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\main artist statistics\Derived Column 1.Outputs[Derived Column Output].Columns[stream_1month_square]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\main artist statistics\Derived Column 1.Outputs[Derived Column Output].Columns[stream_1month_square]"
+                      name="stream_1month_square"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_R8)#{Package\main artist statistics\Lookup.Outputs[Lookup Match Output].Columns[stream_1month]} * (DT_R8)#{Package\main artist statistics\Lookup.Outputs[Lookup Match Output].Columns[stream_1month]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_R8)stream_1month * (DT_R8)stream_1month</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\main artist statistics\Derived Column 1.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\main artist statistics\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\main artist statistics\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\main artist statistics\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\main artist statistics\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\main artist statistics\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\main artist statistics\Derived Column 2"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 2"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\main artist statistics\Derived Column 2.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\main artist statistics\Derived Column 2.Inputs[Derived Column Input].Columns[total_songs]"
+                      cachedDataType="ui4"
+                      cachedName="total_songs"
+                      lineageId="Package\main artist statistics\Aggregate 1.Outputs[Aggregate Output 1].Columns[total_songs]" />
+                    <inputColumn
+                      refId="Package\main artist statistics\Derived Column 2.Inputs[Derived Column Input].Columns[trending_songs]"
+                      cachedDataType="i8"
+                      cachedName="trending_songs"
+                      lineageId="Package\main artist statistics\Aggregate 1.Outputs[Aggregate Output 1].Columns[trending_songs]" />
+                    <inputColumn
+                      refId="Package\main artist statistics\Derived Column 2.Inputs[Derived Column Input].Columns[flopping_song]"
+                      cachedDataType="i8"
+                      cachedName="flopping_song"
+                      lineageId="Package\main artist statistics\Aggregate 1.Outputs[Aggregate Output 1].Columns[flopping_song]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\main artist statistics\Derived Column 2.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\main artist statistics\Derived Column 2.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\main artist statistics\Derived Column 2.Outputs[Derived Column Output].Columns[trending percentage]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\main artist statistics\Derived Column 2.Outputs[Derived Column Output].Columns[trending percentage]"
+                      name="trending percentage"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\main artist statistics\Aggregate 1.Outputs[Aggregate Output 1].Columns[total_songs]} == 0 ? (DT_R8)0 : (DT_R8)#{Package\main artist statistics\Aggregate 1.Outputs[Aggregate Output 1].Columns[trending_songs]} * 100 / (DT_R8)#{Package\main artist statistics\Aggregate 1.Outputs[Aggregate Output 1].Columns[total_songs]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">total_songs == 0 ? (DT_R8)0 : (DT_R8)trending_songs * 100 / (DT_R8)total_songs</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\main artist statistics\Derived Column 2.Outputs[Derived Column Output].Columns[trending factor]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\main artist statistics\Derived Column 2.Outputs[Derived Column Output].Columns[trending factor]"
+                      name="trending factor"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\main artist statistics\Aggregate 1.Outputs[Aggregate Output 1].Columns[trending_songs]} + #{Package\main artist statistics\Aggregate 1.Outputs[Aggregate Output 1].Columns[flopping_song]}) == 0 ? (DT_R8)0 : ((DT_R8)(#{Package\main artist statistics\Aggregate 1.Outputs[Aggregate Output 1].Columns[trending_songs]} - #{Package\main artist statistics\Aggregate 1.Outputs[Aggregate Output 1].Columns[flopping_song]}) / (DT_R8)#{Package\main artist statistics\Aggregate 1.Outputs[Aggregate Output 1].Columns[total_songs]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(trending_songs + flopping_song) == 0 ? (DT_R8)0 : ((DT_R8)(trending_songs - flopping_song) / (DT_R8)total_songs)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\main artist statistics\Derived Column 2.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\main artist statistics\Derived Column 2.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\main artist statistics\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\main artist statistics\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\main artist statistics\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\main artist statistics\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\main artist statistics\Derived Column 3"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 3"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\main artist statistics\Derived Column 3.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\main artist statistics\Derived Column 3.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\main artist statistics\Derived Column 3.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\main artist statistics\Derived Column 3.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\main artist statistics\Derived Column 3.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\main artist statistics\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\main artist statistics\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\main artist statistics\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\main artist statistics\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\main artist statistics\fillter songs of primary artists"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="fillter songs of primary artists"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\main artist statistics\fillter songs of primary artists.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\main artist statistics\fillter songs of primary artists.Inputs[Conditional Split Input].Columns[artist_role]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="artist_role"
+                      lineageId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Output].Columns[artist_role]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\main artist statistics\fillter songs of primary artists.Outputs[Primary Artists]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Primary Artists"
+                  synchronousInputId="Package\main artist statistics\fillter songs of primary artists.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\main artist statistics\song_artist.Outputs[OLE DB Source Output].Columns[artist_role]} == "Primary"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">artist_role == "Primary"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\main artist statistics\fillter songs of primary artists.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\main artist statistics\fillter songs of primary artists.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\main artist statistics\fillter songs of primary artists.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\main artist statistics\fillter songs of primary artists.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\main artist statistics\fillter songs of primary artists.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\main artist statistics\fillter songs of primary artists.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\main artist statistics\fillter songs of primary artists.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\main artist statistics\fillter songs of primary artists.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\main artist statistics\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[Published_song_fact]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[Published_song_fact]) [refTable]
+where [refTable].[song_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="song_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="date_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="album_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="category_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="track_id" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="title" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="duration" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="track_number" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="stream_1month" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="explicit" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\main artist statistics\song_artist.Outputs[OLE DB Source Output].Columns[song_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\main artist statistics\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[131.114.50.57.Group_ID_2_DB.Group_ID_2]"
+                  connectionManagerRefId="Package.ConnectionManagers[131.114.50.57.Group_ID_2_DB.Group_ID_2]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\main artist statistics\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\main artist statistics\Lookup.Inputs[Lookup Input].Columns[song_id]"
+                      cachedDataType="i4"
+                      cachedName="song_id"
+                      lineageId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Output].Columns[song_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">song_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\main artist statistics\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\main artist statistics\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\main artist statistics\Lookup.Outputs[Lookup Match Output].Columns[stream_1month]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\main artist statistics\Lookup.Outputs[Lookup Match Output].Columns[stream_1month]"
+                      name="stream_1month"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">stream_1month</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\main artist statistics\Lookup.Outputs[Lookup Match Output].Columns[date_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\main artist statistics\Lookup.Outputs[Lookup Match Output].Columns[date_id]"
+                      name="date_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">date_id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\main artist statistics\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\main artist statistics\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\main artist statistics\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\main artist statistics\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\main artist statistics\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\main artist statistics\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\main artist statistics\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\main artist statistics\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\main artist statistics\Lookup 1"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup 1"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[artist]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[artist]) [refTable]
+where [refTable].[artist_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="artist_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="current_geo_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="birth_geo_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="id_author" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="name" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="gender" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="is_group" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="active_start" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="active_end" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\main artist statistics\song_artist.Outputs[OLE DB Source Output].Columns[artist_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\main artist statistics\Lookup 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[131.114.50.57.Group_ID_2_DB.Group_ID_2]"
+                  connectionManagerRefId="Package.ConnectionManagers[131.114.50.57.Group_ID_2_DB.Group_ID_2]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\main artist statistics\Lookup 1.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\main artist statistics\Lookup 1.Inputs[Lookup Input].Columns[artist_id]"
+                      cachedDataType="i4"
+                      cachedName="artist_id"
+                      lineageId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Output].Columns[artist_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">artist_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\main artist statistics\Lookup 1.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\main artist statistics\Lookup 1.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\main artist statistics\Lookup 1.Outputs[Lookup Match Output].Columns[name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="255"
+                      lineageId="Package\main artist statistics\Lookup 1.Outputs[Lookup Match Output].Columns[name]"
+                      name="name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">name</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\main artist statistics\Lookup 1.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\main artist statistics\Lookup 1.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\main artist statistics\Lookup 1.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\main artist statistics\Lookup 1.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\main artist statistics\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\main artist statistics\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\main artist statistics\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\main artist statistics\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\main artist statistics\song_artist"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="song_artist"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[song_artist]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\main artist statistics\song_artist.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[131.114.50.57.Group_ID_2_DB.Group_ID_2]"
+                  connectionManagerRefId="Package.ConnectionManagers[131.114.50.57.Group_ID_2_DB.Group_ID_2]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Output].Columns[song_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Output].ExternalColumns[song_id]"
+                      lineageId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Output].Columns[song_id]"
+                      name="song_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Output].Columns[artist_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Output].ExternalColumns[artist_id]"
+                      lineageId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Output].Columns[artist_id]"
+                      name="artist_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Output].Columns[artist_role]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Output].ExternalColumns[artist_role]"
+                      length="50"
+                      lineageId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Output].Columns[artist_role]"
+                      name="artist_role"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Output].ExternalColumns[song_id]"
+                      dataType="i4"
+                      name="song_id" />
+                    <externalMetadataColumn
+                      refId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Output].ExternalColumns[artist_id]"
+                      dataType="i4"
+                      name="artist_id" />
+                    <externalMetadataColumn
+                      refId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Output].ExternalColumns[artist_role]"
+                      dataType="wstr"
+                      length="50"
+                      name="artist_role" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Error Output].Columns[song_id]"
+                      dataType="i4"
+                      lineageId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Error Output].Columns[song_id]"
+                      name="song_id" />
+                    <outputColumn
+                      refId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Error Output].Columns[artist_id]"
+                      dataType="i4"
+                      lineageId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Error Output].Columns[artist_id]"
+                      name="artist_id" />
+                    <outputColumn
+                      refId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Error Output].Columns[artist_role]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Error Output].Columns[artist_role]"
+                      name="artist_role" />
+                    <outputColumn
+                      refId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\main artist statistics.Paths[Aggregate Output 1]"
+              endId="Package\main artist statistics\Derived Column 2.Inputs[Derived Column Input]"
+              name="Aggregate Output 1"
+              startId="Package\main artist statistics\Aggregate 1.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\main artist statistics.Paths[Aggregate Output 11]"
+              endId="Package\main artist statistics\Derived Column.Inputs[Derived Column Input]"
+              name="Aggregate Output 1"
+              startId="Package\main artist statistics\Aggregate.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\main artist statistics.Paths[Derived Column Output]"
+              endId="Package\main artist statistics\Aggregate.Inputs[Aggregate Input 1]"
+              name="Derived Column Output"
+              startId="Package\main artist statistics\Derived Column 1.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\main artist statistics.Paths[Derived Column Output1]"
+              endId="Package\main artist statistics\Derived Column 3.Inputs[Derived Column Input]"
+              name="Derived Column Output"
+              startId="Package\main artist statistics\Derived Column 2.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\main artist statistics.Paths[Lookup Match Output]"
+              endId="Package\main artist statistics\Lookup 1.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\main artist statistics\Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\main artist statistics.Paths[Lookup Match Output1]"
+              endId="Package\main artist statistics\Derived Column 1.Inputs[Derived Column Input]"
+              name="Lookup Match Output"
+              startId="Package\main artist statistics\Lookup 1.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\main artist statistics.Paths[OLE DB Source Output]"
+              endId="Package\main artist statistics\fillter songs of primary artists.Inputs[Conditional Split Input]"
+              name="OLE DB Source Output"
+              startId="Package\main artist statistics\song_artist.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\main artist statistics.Paths[Primary Artists]"
+              endId="Package\main artist statistics\Lookup.Inputs[Lookup Input]"
+              name="Primary Artists"
+              startId="Package\main artist statistics\fillter songs of primary artists.Outputs[Primary Artists]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\main artist statistics"
+          TopLeft="136.428571718992,90.9999999202348" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\main artist statistics">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\main artist statistics\Derived Column 2"
+          TopLeft="865.816328373708,564.823528941218" />
+        <NodeLayout
+          Size="126.4,41.6"
+          Id="Package\main artist statistics\Aggregate"
+          TopLeft="556.972790301295,113.229691812562" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\main artist statistics\Derived Column 3"
+          TopLeft="728.911566177512,471.23809484958" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\main artist statistics\Lookup"
+          TopLeft="606.122450269867,18.9691876829858" />
+        <NodeLayout
+          Size="121.6,41.6"
+          Id="Package\main artist statistics\Lookup 1"
+          TopLeft="802.380954089011,26.0700280128963" />
+        <NodeLayout
+          Size="130.4,41.6"
+          Id="Package\main artist statistics\song_artist"
+          TopLeft="55.4761905942848,11.4313725635426" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\main artist statistics\Derived Column 1"
+          TopLeft="783.741498267019,111.785994349562" />
+        <NodeLayout
+          Size="136,41.6"
+          Id="Package\main artist statistics\Aggregate 1"
+          TopLeft="524.319729007296,573.198879073933" />
+        <NodeLayout
+          Size="216,41.6"
+          Id="Package\main artist statistics\fillter songs of primary artists"
+          TopLeft="279.081633247152,16.4201680773772" />
+        <EdgeLayout
+          Id="Package\main artist statistics.Paths[Primary Artists]"
+          TopLeft="495.081633247152,38.4946778801815">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="111.040817022715,0"
+              Start="0,0"
+              End="103.540817022715,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="103.540817022715,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="19.1078303863575,5,65.32515625,11.3310546875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\main artist statistics.Paths[OLE DB Source Output]"
+          TopLeft="185.876190594285,34.7257703204599">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="93.205442652867,0"
+              Start="0,0"
+              End="85.705442652867,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="85.705442652867,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\main artist statistics.Paths[Lookup Match Output1]"
+          TopLeft="864.061226178015,67.6700280128963">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.1159663366657"
+              Start="0,0"
+              End="0,36.6159663366657">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.6159663366657" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,12.5032956683329,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\main artist statistics.Paths[Lookup Match Output]"
+          TopLeft="718.922450269867,43.3196078479411">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="83.458503819144,0"
+              Start="0,0"
+              End="75.958503819144,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="75.958503819144,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-10.212134809178,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\main artist statistics.Paths[Derived Column Output1]"
+          TopLeft="947.016328373708,564.823528941218">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-136.904762196196,-51.9854340916382"
+              Start="0,0"
+              End="-136.904762196196,-44.4854340916382">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-21.9927170458191" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-21.9927170458191"
+                    Point2="0,-25.9927170458191"
+                    Point3="-4,-25.9927170458191" />
+                  <mssgle:LineSegment
+                    End="-132.904762196196,-25.9927170458191" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-132.904762196196,-25.9927170458191"
+                    Point2="-136.904762196196,-25.9927170458191"
+                    Point3="-136.904762196196,-29.9927170458191" />
+                  <mssgle:LineSegment
+                    End="-136.904762196196,-44.4854340916382" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-76.452381098098,-20.9927170458191,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\main artist statistics.Paths[Derived Column Output]"
+          TopLeft="783.741498267019,133.307843081062">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-100.368707965724,0"
+              Start="0,0"
+              End="-92.8687079657242,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-92.8687079657242,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\main artist statistics.Paths[Aggregate Output 1]"
+          TopLeft="660.319729007296,593.998879073933">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="205.496599366412,-8.37535013271486"
+              Start="0,0"
+              End="197.996599366412,-8.37535013271486">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="98.748299683206,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="98.748299683206,0"
+                    Point2="102.748299683206,0"
+                    Point3="102.748299683206,-4" />
+                  <mssgle:LineSegment
+                    End="102.748299683206,-4.37535013271486" />
+                  <mssgle:CubicBezierSegment
+                    Point1="102.748299683206,-4.37535013271486"
+                    Point2="102.748299683206,-8.37535013271486"
+                    Point3="106.748299683206,-8.37535013271486" />
+                  <mssgle:LineSegment
+                    End="197.996599366412,-8.37535013271486" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\main artist statistics\Derived Column"
+          TopLeft="610.714287014336,264.647058607918" />
+        <EdgeLayout
+          Id="Package\main artist statistics.Paths[Aggregate Output 11]"
+          TopLeft="620.172790301295,154.829691812562">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="66.941496713041,109.817366795356"
+              Start="0,0"
+              End="66.941496713041,102.317366795356">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.908683397678" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,50.908683397678"
+                    Point2="0,54.908683397678"
+                    Point3="4,54.908683397678" />
+                  <mssgle:LineSegment
+                    End="62.941496713041,54.908683397678" />
+                  <mssgle:CubicBezierSegment
+                    Point1="62.941496713041,54.908683397678"
+                    Point2="66.941496713041,54.908683397678"
+                    Point3="66.941496713041,58.908683397678" />
+                  <mssgle:LineSegment
+                    End="66.941496713041,102.317366795356" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="25.4707483565205,59.908683397678,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\main artist statistics\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Published_song_fact]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\main artist statistics\Lookup 1">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[artist]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\main artist statistics\song_artist">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

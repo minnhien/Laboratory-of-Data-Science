@@ -1,0 +1,16 @@
+WITH 
+MEMBER yearly_stream AS [Measures].[Stream 1month]
+MEMBER prev_year_stream AS ([Measures].[Stream 1month], [Date].[Hierarchy].CurrentMember.Lag(1))
+MEMBER ratio AS
+    iif(yearly_stream = 0
+    or
+    prev_year_stream = 0
+    or
+    IsEmpty(yearly_stream)
+    or
+    IsEmpty(prev_year_stream)
+    , 0, ((yearly_stream - prev_year_stream)/prev_year_stream)),
+    FORMAT = "Percent"
+SELECT { yearly_stream, prev_year_stream, ratio } ON COLUMNS,
+NONEMPTY (([Category].[Melody Cat].[Melody Cat], [Date].[Hierarchy].[Year].Members)) ON ROWS
+FROM [Group ID 2 DB]

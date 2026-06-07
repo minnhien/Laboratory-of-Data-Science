@@ -1,0 +1,110 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>Group_ID_2_CUBE</Database>
+    <Server>http://131.114.50.57/olap/msmdpump.dll</Server>
+    <ConnectionString>Data Source=http://131.114.50.57/olap/msmdpump.dll;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>L52H+G+fAn7gsBj9YGEutgUTbOk=12/19/2025 1:21:22 PM12/19/2025 1:17:48 PM</TimeStamp>
+        <ID>
+          <String>Group ID 2 DB</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>ffhkEyZ9Hti3AzIFlcxh4IN4eAk=12/20/2025 4:22:05 PM12/19/2025 1:18:28 PM</TimeStamp>
+        <ID>
+          <String>Group ID 2 DB</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>MK7d5GaLXeG0EhJgKiFl8GN3UDM=12/19/2025 1:25:06 PM12/19/2025 1:11:58 PM</TimeStamp>
+        <ID>
+          <String>Album</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>WI1ACl1QVe5XvfnLVWWx4q92MNE=12/19/2025 1:25:46 PM12/19/2025 1:11:58 PM</TimeStamp>
+        <ID>
+          <String>Category</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>FxcxTFYjd293S+RYADoiV5BSvg4=12/19/2025 1:47:59 PM12/19/2025 1:31:31 PM</TimeStamp>
+        <ID>
+          <String>Artist</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>8OCBHEX0t5CpVJWzm4Qrrl+O684=12/20/2025 4:27:04 PM12/19/2025 1:58:03 PM</TimeStamp>
+        <ID>
+          <String>Song Artist</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>DZvtm23E6NW80KAdoo7hoaDjjd4=12/21/2025 1:40:53 AM12/19/2025 2:00:08 PM</TimeStamp>
+        <ID>
+          <String>Published Song Fact</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ssaxBKyL+zMXjQJQUrI+QBo4Lp0=12/20/2025 12:17:35 AM12/19/2025 4:50:04 PM</TimeStamp>
+        <ID>
+          <String>Date</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>mVdQX34/OztBAswe8CLfni4j83w=12/19/2025 5:27:40 PM12/19/2025 5:22:24 PM</TimeStamp>
+        <ID>
+          <String>Artist Geography B</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>CIKkZ4Sg8gdHftHFnU1vbazVIQM=12/19/2025 5:27:00 PM12/19/2025 5:26:04 PM</TimeStamp>
+        <ID>
+          <String>Artist Geography C</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>r3mPsIE4/DGBzouZoi2qvvDK/5Y=12/21/2025 1:40:53 AM12/19/2025 1:31:31 PMD2YieYU+o3u4kEPZz5iX5XNb2HM=12/20/2025 4:22:41 PM12/19/2025 1:31:31 PM</TimeStamp>
+        <ID>
+          <String>Group ID 2 DB</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>bHIxPSmIFPGLsteve+osZU2Yu8k=12/19/2025 1:09:56 PM12/19/2025 1:09:55 PM</TimeStamp>
+      <ID>
+        <String>Group_ID_2_CUBE</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2025-12-21T00:48:02.213333Z</LastDeployed>
+</DeploymentSnapshot>

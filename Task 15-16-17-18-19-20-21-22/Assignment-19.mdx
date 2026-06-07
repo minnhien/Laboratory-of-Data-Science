@@ -1,0 +1,31 @@
+WITH 
+SET [CurrentSongs] AS 
+    EXISTING [Published Song Fact].[Song Id].[Song Id]
+SET [SoloSet] AS 
+    FILTER([CurrentSongs], [Measures].[NArtist per song] = 1)
+SET [CollabSet] AS 
+    FILTER([CurrentSongs], [Measures].[NArtist per song] > 1)
+
+MEMBER [Measures].[Solo Streams] AS
+    SUM([SoloSet], [Measures].[Stream 1month])
+MEMBER [Measures].[Primary Collab Allocated] AS
+    SUM([CollabSet], ([Measures].[Stream 1month], [Artist Role].[Artist Role].&[Primary]) * 0.8)
+MEMBER [Measures].[Featured Collab Allocated] AS
+    SUM([CollabSet], ([Measures].[Stream 1month], [Artist Role].[Artist Role].&[Featured]) * 0.2)
+MEMBER [Measures].[Total Streams] AS
+    [Measures].[Solo Streams] + [Measures].[Primary Collab Allocated] + [Measures].[Featured Collab Allocated]
+
+SELECT [Measures].[Total Streams] ON COLUMNS,
+    NONEMPTY(
+        GENERATE((FILTER([Category].[Melody Cat].[Melody Cat].MEMBERS,
+                    LEN([Category].[Melody Cat].CurrentMember.Name) > 0),
+                    FILTER([Artist].[Age Range].[Age Range].MEMBERS,
+                    LEN([Artist].[Age Range].CurrentMember.Name) > 0)),
+                    TOPCOUNT((
+                    [Category].[Melody Cat].CurrentMember,
+                    [Artist].[Age Range].CurrentMember,
+                    [Artist].[Name].[Name]),
+                    5,
+                    [Measures].[Total Streams]))
+    ) ON ROWS
+FROM [Group ID 2 DB]

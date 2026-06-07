@@ -1,0 +1,201 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{15D1CBE6-087F-6C50-A9C6-D812BB07F400}|Group_ID_2_CUBE.dwproj|C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Group ID 2 DB.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{15D1CBE6-087F-6C50-A9C6-D812BB07F400}|Group_ID_2_CUBE.dwproj|solutionrelative:Group ID 2 DB.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15D1CBE6-087F-6C50-A9C6-D812BB07F400}|Group_ID_2_CUBE.dwproj|C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Date.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{15D1CBE6-087F-6C50-A9C6-D812BB07F400}|Group_ID_2_CUBE.dwproj|solutionrelative:Date.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15D1CBE6-087F-6C50-A9C6-D812BB07F400}|Group_ID_2_CUBE.dwproj|C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Published Song Fact.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{15D1CBE6-087F-6C50-A9C6-D812BB07F400}|Group_ID_2_CUBE.dwproj|solutionrelative:Published Song Fact.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15D1CBE6-087F-6C50-A9C6-D812BB07F400}|Group_ID_2_CUBE.dwproj|C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Artist Role.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{15D1CBE6-087F-6C50-A9C6-D812BB07F400}|Group_ID_2_CUBE.dwproj|solutionrelative:Artist Role.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15D1CBE6-087F-6C50-A9C6-D812BB07F400}|Group_ID_2_CUBE.dwproj|C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Artist.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{15D1CBE6-087F-6C50-A9C6-D812BB07F400}|Group_ID_2_CUBE.dwproj|solutionrelative:Artist.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15D1CBE6-087F-6C50-A9C6-D812BB07F400}|Group_ID_2_CUBE.dwproj|C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Category.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{15D1CBE6-087F-6C50-A9C6-D812BB07F400}|Group_ID_2_CUBE.dwproj|solutionrelative:Category.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15D1CBE6-087F-6C50-A9C6-D812BB07F400}|Group_ID_2_CUBE.dwproj|C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Album.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{15D1CBE6-087F-6C50-A9C6-D812BB07F400}|Group_ID_2_CUBE.dwproj|solutionrelative:Album.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15D1CBE6-087F-6C50-A9C6-D812BB07F400}|Group_ID_2_CUBE.dwproj|C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Artist Geography B.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{15D1CBE6-087F-6C50-A9C6-D812BB07F400}|Group_ID_2_CUBE.dwproj|solutionrelative:Artist Geography B.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15D1CBE6-087F-6C50-A9C6-D812BB07F400}|Group_ID_2_CUBE.dwproj|C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Artist Geography C.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{15D1CBE6-087F-6C50-A9C6-D812BB07F400}|Group_ID_2_CUBE.dwproj|solutionrelative:Artist Geography C.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15D1CBE6-087F-6C50-A9C6-D812BB07F400}|Group_ID_2_CUBE.dwproj|C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Group ID 2 DB.dsv||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{15D1CBE6-087F-6C50-A9C6-D812BB07F400}|Group_ID_2_CUBE.dwproj|solutionrelative:Group ID 2 DB.dsv||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 272,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 128,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Group ID 2 DB.cube [Design]",
+              "DocumentMoniker": "C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Group ID 2 DB.cube",
+              "RelativeDocumentMoniker": "Group ID 2 DB.cube",
+              "ToolTip": "C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Group ID 2 DB.cube [Design]*",
+              "RelativeToolTip": "Group ID 2 DB.cube [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-12-19T12:31:31.171Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Date.dim [Design]",
+              "DocumentMoniker": "C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Date.dim",
+              "RelativeDocumentMoniker": "Date.dim",
+              "ToolTip": "C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Date.dim [Design]",
+              "RelativeToolTip": "Date.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-12-19T15:50:05.063Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Group ID 2 DB.dsv [Design]",
+              "DocumentMoniker": "C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Group ID 2 DB.dsv",
+              "RelativeDocumentMoniker": "Group ID 2 DB.dsv",
+              "ToolTip": "C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Group ID 2 DB.dsv [Design]",
+              "RelativeToolTip": "Group ID 2 DB.dsv [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-12-19T12:19:19.616Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Artist Geography C.dim [Design]",
+              "DocumentMoniker": "C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Artist Geography C.dim",
+              "RelativeDocumentMoniker": "Artist Geography C.dim",
+              "ToolTip": "C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Artist Geography C.dim [Design]",
+              "RelativeToolTip": "Artist Geography C.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-12-19T16:26:04.706Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Artist Geography B.dim [Design]",
+              "DocumentMoniker": "C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Artist Geography B.dim",
+              "RelativeDocumentMoniker": "Artist Geography B.dim",
+              "ToolTip": "C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Artist Geography B.dim [Design]",
+              "RelativeToolTip": "Artist Geography B.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-12-19T16:22:24.853Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Published Song Fact.dim [Design]",
+              "DocumentMoniker": "C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Published Song Fact.dim",
+              "RelativeDocumentMoniker": "Published Song Fact.dim",
+              "ToolTip": "C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Published Song Fact.dim [Design]",
+              "RelativeToolTip": "Published Song Fact.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-12-19T13:00:08.902Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Artist Role.dim [Design]",
+              "DocumentMoniker": "C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Artist Role.dim",
+              "RelativeDocumentMoniker": "Artist Role.dim",
+              "ToolTip": "C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Artist Role.dim [Design]",
+              "RelativeToolTip": "Artist Role.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-12-19T12:58:03.191Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Artist.dim [Design]",
+              "DocumentMoniker": "C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Artist.dim",
+              "RelativeDocumentMoniker": "Artist.dim",
+              "ToolTip": "C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Artist.dim [Design]",
+              "RelativeToolTip": "Artist.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-12-19T12:32:43.718Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Category.dim [Design]",
+              "DocumentMoniker": "C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Category.dim",
+              "RelativeDocumentMoniker": "Category.dim",
+              "ToolTip": "C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Category.dim [Design]",
+              "RelativeToolTip": "Category.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-12-19T12:13:56.061Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Album.dim [Design]",
+              "DocumentMoniker": "C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Album.dim",
+              "RelativeDocumentMoniker": "Album.dim",
+              "ToolTip": "C:\\Users\\hiend\\source\\repos\\Group_ID_2_CUBE\\Album.dim [Design]",
+              "RelativeToolTip": "Album.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-12-19T12:13:52.043Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

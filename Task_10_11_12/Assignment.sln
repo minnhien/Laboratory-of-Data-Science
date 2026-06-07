@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Group_ID_2_Task_10_11_12", "Assignment\Group_ID_2_Task_10_11_12.dtproj", "{C4EEA7ED-262C-7278-D689-4DFC68BCAF8F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Azure|Default = Azure|Default
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4EEA7ED-262C-7278-D689-4DFC68BCAF8F}.Azure|Default.ActiveCfg = Azure
+		{C4EEA7ED-262C-7278-D689-4DFC68BCAF8F}.Azure|Default.Build.0 = Azure
+		{C4EEA7ED-262C-7278-D689-4DFC68BCAF8F}.Development|Default.ActiveCfg = Development
+		{C4EEA7ED-262C-7278-D689-4DFC68BCAF8F}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {237A0DB0-5289-4CFE-A01A-9DF0C64E913C}
+	EndGlobalSection
+EndGlobal

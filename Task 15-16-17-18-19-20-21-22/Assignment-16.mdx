@@ -1,0 +1,36 @@
+WITH 
+SET [CurrentSongs] AS 
+    EXISTING [Published Song Fact].[Song Id].[Song Id]
+SET [SoloSet] AS 
+    FILTER([CurrentSongs], [Measures].[NArtist per song] = 1)
+SET [CollabSet] AS 
+    FILTER([CurrentSongs], [Measures].[NArtist per song] > 1)
+
+MEMBER [Measures].[Solo Streams] AS
+    SUM([SoloSet], [Measures].[Stream 1month])
+MEMBER [Measures].[Primary Collab Allocated] AS
+    SUM([CollabSet], ([Measures].[Stream 1month], [Artist Role].[Artist Role].&[Primary]) * 0.8)
+MEMBER [Measures].[Featured Collab Allocated] AS
+    SUM([CollabSet], ([Measures].[Stream 1month], [Artist Role].[Artist Role].&[Featured]) * 0.2)
+
+MEMBER [Measures].[Total Allocated Streams] AS
+    [Measures].[Solo Streams] + [Measures].[Primary Collab Allocated] + [Measures].[Featured Collab Allocated]
+MEMBER [Measures].[Grand Total Year Stream] AS
+    ([Date].[Year].CurrentMember, [Artist].[Artist Id].[All], [Artist].[Name].[All], [Measures].[Stream 1month])
+MEMBER [Measures].[Average Yearly Artist Stream] AS
+    iif([Measures].[Grand Total Year Stream]=0,0,
+    [Measures].[Total Allocated Streams]/[Measures].[Grand Total Year Stream]),
+Format_string="Percent"
+
+SELECT 
+{[Measures].[Solo Streams],
+ [Measures].[Primary Collab Allocated],
+ [Measures].[Featured Collab Allocated],
+ [Measures].[Total Allocated Streams],
+ [Measures].[Grand Total Year Stream],
+ [Measures].[Average Yearly Artist Stream]
+} ON COLUMNS,
+NONEMPTY((FILTER([Date].[Year].[Year],LEN([Date].[Year].CurrentMember.Name) > 0) 
+* [Artist].[Artist Id].[Artist Id] 
+* [Artist].[Name].[Name])) ON ROWS
+FROM [Group ID 2 DB];

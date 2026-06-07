@@ -1,0 +1,66 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Lab - code\\LDS_project_Group_ID_2\\Task_14_Group_ID_2_CUBE\\Group_ID_2_CUBE\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{15D1CBE6-087F-6C50-A9C6-D812BB07F400}|Group_ID_2_CUBE.dwproj|C:\\Lab - code\\LDS_project_Group_ID_2\\Task_14_Group_ID_2_CUBE\\Group_ID_2_CUBE\\Group ID 2 DB.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{15D1CBE6-087F-6C50-A9C6-D812BB07F400}|Group_ID_2_CUBE.dwproj|solutionrelative:Group ID 2 DB.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15D1CBE6-087F-6C50-A9C6-D812BB07F400}|Group_ID_2_CUBE.dwproj|C:\\Lab - code\\LDS_project_Group_ID_2\\Task_14_Group_ID_2_CUBE\\Group_ID_2_CUBE\\Artist Role.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{15D1CBE6-087F-6C50-A9C6-D812BB07F400}|Group_ID_2_CUBE.dwproj|solutionrelative:Artist Role.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15D1CBE6-087F-6C50-A9C6-D812BB07F400}|Group_ID_2_CUBE.dwproj|C:\\Lab - code\\LDS_project_Group_ID_2\\Task_14_Group_ID_2_CUBE\\Group_ID_2_CUBE\\Group ID 2 DB.dsv||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{15D1CBE6-087F-6C50-A9C6-D812BB07F400}|Group_ID_2_CUBE.dwproj|solutionrelative:Group ID 2 DB.dsv||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Artist Role.dim [Design]",
+              "DocumentMoniker": "C:\\Lab - code\\LDS_project_Group_ID_2\\Task_14_Group_ID_2_CUBE\\Group_ID_2_CUBE\\Artist Role.dim",
+              "RelativeDocumentMoniker": "Artist Role.dim",
+              "ToolTip": "C:\\Lab - code\\LDS_project_Group_ID_2\\Task_14_Group_ID_2_CUBE\\Group_ID_2_CUBE\\Artist Role.dim [Design]",
+              "RelativeToolTip": "Artist Role.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-01-26T17:39:08.676Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Group ID 2 DB.cube [Design]",
+              "DocumentMoniker": "C:\\Lab - code\\LDS_project_Group_ID_2\\Task_14_Group_ID_2_CUBE\\Group_ID_2_CUBE\\Group ID 2 DB.cube",
+              "RelativeDocumentMoniker": "Group ID 2 DB.cube",
+              "ToolTip": "C:\\Lab - code\\LDS_project_Group_ID_2\\Task_14_Group_ID_2_CUBE\\Group_ID_2_CUBE\\Group ID 2 DB.cube [Design]",
+              "RelativeToolTip": "Group ID 2 DB.cube [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-01-26T17:27:05.735Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Group ID 2 DB.dsv [Design]",
+              "DocumentMoniker": "C:\\Lab - code\\LDS_project_Group_ID_2\\Task_14_Group_ID_2_CUBE\\Group_ID_2_CUBE\\Group ID 2 DB.dsv",
+              "RelativeDocumentMoniker": "Group ID 2 DB.dsv",
+              "ToolTip": "C:\\Lab - code\\LDS_project_Group_ID_2\\Task_14_Group_ID_2_CUBE\\Group_ID_2_CUBE\\Group ID 2 DB.dsv [Design]",
+              "RelativeToolTip": "Group ID 2 DB.dsv [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-01-26T17:27:01.842Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+﻿WITH
+MEMBER Current_Cat_Stream AS [Measures].[Stream 1month]
+MEMBER Avg_All_Cats_Current AS Avg([Category].[Melody Cat].[Melody Cat].Members, [Measures].[Stream 1month])
+MEMBER Prev_Year_Benchmark AS 
+    (Avg_All_Cats_Current,
+    ParallelPeriod([Date].[Hierarchy].[Year],1,[Date].[Hierarchy].CurrentMember))
+MEMBER Growth_Vs_Avg_Pct AS 
+    IIF(Prev_Year_Benchmark = 0 OR IsEmpty(Prev_Year_Benchmark), 0, (Current_Cat_Stream - Prev_Year_Benchmark)/Prev_Year_Benchmark), 
+        FORMAT_STRING = "Percent"
+
+SELECT 
+    {Current_Cat_Stream, 
+    Avg_All_Cats_Current,
+    Prev_Year_Benchmark, 
+    Growth_Vs_Avg_Pct} ON COLUMNS,
+NONEMPTY (
+   FILTER(
+       [Date].[Hierarchy].[Year].Members * [Date].[Seasons].[Seasons].Members * [Category].[Melody Cat].[Melody Cat].Members,
+       [Measures].[Current_Cat_Stream] > [Measures].[Prev_Year_Benchmark]
+       AND [Date].[Seasons].CurrentMember.Name <> "" 
+       AND [Date].[Seasons].CurrentMember.Name <> "All" 
+       AND [Date].[Hierarchy].CurrentMember.Name <> ""
+   )
+ ) ON ROWS
+
+FROM [Group ID 2 DB]
+
+
